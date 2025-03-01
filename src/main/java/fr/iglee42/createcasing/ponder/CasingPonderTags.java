@@ -1,30 +1,40 @@
 package fr.iglee42.createcasing.ponder;
 
-import com.simibubi.create.foundation.ponder.PonderRegistry;
-import com.simibubi.create.foundation.ponder.PonderTag;
-import com.simibubi.create.infrastructure.ponder.AllPonderTags;
+import com.simibubi.create.infrastructure.ponder.AllCreatePonderTags;
 import com.tterrag.registrate.util.entry.ItemProviderEntry;
+import com.tterrag.registrate.util.entry.RegistryEntry;
 import fr.iglee42.createcasing.CreateCasing;
 import fr.iglee42.createcasing.registries.ModBlocks;
+import net.createmod.catnip.platform.CatnipServices;
+import net.createmod.ponder.api.registration.PonderTagRegistrationHelper;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ItemLike;
 
 import java.util.List;
 
-public class ModPonderTags{
-
-	public static final PonderTag ENCASED_BLOCKS = create("encased_blocks").item(ModBlocks.BRASS_GEARBOX.get())
-			.defaultLang("Create : Encased", "Components which added by Create Encased")
-			.addToIndex();
+public class CasingPonderTags {
 
 
-	private static PonderTag create(String id) {
-		return new PonderTag(CreateCasing.asResource(id));
+	public static final ResourceLocation ENCASED_BLOCKS = loc("encased_blocks");
+
+
+	private static ResourceLocation loc(String id) {
+		return CreateCasing.asResource(id);
 	}
 
 
-	public static void register() {
+	public static void register(PonderTagRegistrationHelper<ResourceLocation> helper) {
+		PonderTagRegistrationHelper<RegistryEntry<?>> HELPER = helper.withKeyFunction(RegistryEntry::getId);
+		PonderTagRegistrationHelper<ItemLike> itemHelper = helper.withKeyFunction(
+				CatnipServices.REGISTRIES::getKeyOrThrow);
+
+		helper.registerTag(ENCASED_BLOCKS).item(ModBlocks.BRASS_GEARBOX.get())
+				.title("Create : Encased")
+				.description("Components which added by Create Encased")
+				.addToIndex();
 
 
-		PonderRegistry.TAGS.forTag(AllPonderTags.CREATIVE)
+		HELPER.addToTag(AllCreatePonderTags.CREATIVE)
 						.add(ModBlocks.CREATIVE_COGWHEEL);
 
 		List<ItemProviderEntry<?>> entries = List.of(
@@ -36,7 +46,7 @@ public class ModPonderTags{
 				ModBlocks.BRASS_CHAIN_DRIVE,ModBlocks.COPPER_CHAIN_DRIVE,ModBlocks.RAILWAY_CHAIN_DRIVE,ModBlocks.INDUSTRIAL_IRON_CHAIN_DRIVE,ModBlocks.CREATIVE_CHAIN_DRIVE,
 				ModBlocks.BRASS_CHAIN_GEARSHIFT,ModBlocks.COPPER_CHAIN_GEARSHIFT,ModBlocks.RAILWAY_CHAIN_GEARSHIFT,ModBlocks.INDUSTRIAL_IRON_CHAIN_GEARSHIFT,ModBlocks.CREATIVE_CHAIN_GEARSHIFT);
 
-		entries.forEach(e->PonderRegistry.TAGS.forTag(ENCASED_BLOCKS).add(e));
+		entries.forEach(e->HELPER.addToTag(ENCASED_BLOCKS).add(e));
 
 
 	}
