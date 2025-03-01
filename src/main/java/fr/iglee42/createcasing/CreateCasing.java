@@ -89,10 +89,6 @@ public class CreateCasing {
 
         ModBlocks.registerEncasedShafts();
 
-        if (ModList.get().isLoaded("kubejs")) {
-            KubeJSCompatInit.init();
-        }
-
         //if (isCrystalClearLoaded()) CreateCrystalClearCompatibility.register();
 
 
