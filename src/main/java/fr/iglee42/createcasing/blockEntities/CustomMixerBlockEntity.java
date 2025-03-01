@@ -33,6 +33,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
+import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -265,7 +266,7 @@ public class CustomMixerBlockEntity extends BasinOperatingBlockEntity {
 		if (basin.isEmpty())
 			return matchingRecipes;
 		
-		IItemHandler availableItems = basinTileEntity
+		IItemHandler availableItems = basinBlockEntity
 			.getCapability(ForgeCapabilities.ITEM_HANDLER)
 			.orElse(null);
 		if (availableItems == null)
@@ -276,7 +277,7 @@ public class CustomMixerBlockEntity extends BasinOperatingBlockEntity {
 			if (stack.isEmpty())
 				continue;
 
-			List<MixingRecipe> list = PotionMixingRecipes.sortRecipesByItem(level).get(stack.getItem());
+			List<MixingRecipe> list = PotionMixingRecipes.BY_ITEM.get(stack.getItem());
 			if (list == null)
 				continue;
 			for (MixingRecipe mixingRecipe : list)
@@ -287,14 +288,16 @@ public class CustomMixerBlockEntity extends BasinOperatingBlockEntity {
 		return matchingRecipes;
 	}
 
+
 	@Override
 	protected <C extends Container> boolean matchStaticFilters(Recipe<C> r) {
 		return ((r instanceof CraftingRecipe && !(r instanceof IShapedRecipe<?>)
-				 && AllConfigs.server().recipes.allowShapelessInMixer.get() && r.getIngredients()
+				&& AllConfigs.server().recipes.allowShapelessInMixer.get() && r.getIngredients()
 				.size() > 1
-				 && !MechanicalPressBlockEntity.canCompress(r)) && !AllRecipeTypes.shouldIgnoreInAutomation(r)
-			|| r.getType() == AllRecipeTypes.MIXING.getType());
+				&& !MechanicalPressBlockEntity.canCompress(r)) && !AllRecipeTypes.shouldIgnoreInAutomation(r)
+				|| r.getType() == AllRecipeTypes.MIXING.getType());
 	}
+
 
 	@Override
 	public void startProcessingBasin() {
