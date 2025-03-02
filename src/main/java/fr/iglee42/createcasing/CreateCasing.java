@@ -54,7 +54,7 @@ public class CreateCasing {
         
         ModSounds.prepare();
         ModBlocks.register();
-        ModItems.register();
+        //ModItems.register();
         ModBlockEntities.register();
         ModCreativeModeTabs.register(modEventBus);
         ModPackets.registerPackets();

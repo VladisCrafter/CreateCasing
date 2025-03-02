@@ -192,7 +192,7 @@ dependencies {
     implementation fg.deobf("net.createmod.ponder:Ponder-Forge-${minecraft_version}:${ponder_version}")
     compileOnly fg.deobf("dev.engine-room.flywheel:flywheel-forge-api-${minecraft_version}:${flywheel_version}")
     runtimeOnly fg.deobf("dev.engine-room.flywheel:flywheel-forge-${minecraft_version}:${flywheel_version}")
-    implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
+    compileOnly fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
 
     //JEI
     // compile against the JEI API but do not include it at runtime
@@ -216,7 +216,7 @@ dependencies {
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.
 // When "copyIdeResources" is enabled, this will also run before the game launches in IDE environments.
 // See https://docs.gradle.org/current/dsl/org.gradle.language.jvm.tasks.ProcessResources.html
-var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
+/*var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
     var replaceProperties = [
             minecraft_version      : minecraft_version,
             minecraft_version_range: minecraft_version_range,
@@ -231,13 +231,16 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             mod_description        : mod_description,
             create_version_range        : create_version_range
     ]
+
     inputs.properties replaceProperties
     expand replaceProperties
-    from "src/main/resources"
-    into "build/generated/sources/modMetadata"
-}
+    from "src/main/resources/META-INF"
+    into "build/resources/main"
+}*/
 
-sourceSets.main.resources.srcDir generateModMetadata
+
+
+//sourceSets.main.resources.srcDir generateModMetadata
 
 jar.finalizedBy('reobfJar')
 
