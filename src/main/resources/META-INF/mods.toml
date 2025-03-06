@@ -18,7 +18,7 @@ license = "MIT"
 modId = "createcasing" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 # see the associated build.gradle script for how to populate this completely automatically during a build
-version = "1.7.0" #mandatory
+version = "1.7.0-fix1" #mandatory
 
 # A display name for the mod
 displayName = "Create Encased" #mandatory
@@ -52,6 +52,6 @@ side = "BOTH"
 modId = "create"
 mandatory = true
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
-versionRange = "[6.0.0,)"
+versionRange = "[6.0.2,)"
 ordering = "AFTER"
 side = "BOTH"
