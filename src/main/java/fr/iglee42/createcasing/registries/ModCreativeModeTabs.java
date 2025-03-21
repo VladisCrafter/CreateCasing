@@ -36,13 +36,13 @@ public class ModCreativeModeTabs {
 	private static final DeferredRegister<CreativeModeTab> TAB_REGISTER =
 		DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CreateCasing.MODID);
 
-	public static final RegistryObject<CreativeModeTab> MAIN_TAB = TAB_REGISTER.register("tab",
-		() -> CreativeModeTab.builder()
-			.title(Component.translatable("itemGroup.createcasing"))
-			.withTabsBefore(AllCreativeModeTabs.BASE_CREATIVE_TAB.getKey())
-			.icon(ModBlocks.BRASS_GEARBOX::asStack)
-				.displayItems(new RegistrateDisplayItemsGenerator(true,ModCreativeModeTabs.MAIN_TAB))
-			.build());
+    public static final RegistryObject<CreativeModeTab> MAIN_TAB = TAB_REGISTER.register("tab",
+            () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup."+CreateCasing.MODID+".base"))
+                    .withTabsBefore(AllCreativeModeTabs.BASE_CREATIVE_TAB.getKey())
+                    .icon(ModBlocks.BRASS_GEARBOX::asStack)
+                    .displayItems(new RegistrateDisplayItemsGenerator(true,ModCreativeModeTabs.MAIN_TAB))
+                    .build());
 
 
     public static void register(IEventBus modEventBus) {
