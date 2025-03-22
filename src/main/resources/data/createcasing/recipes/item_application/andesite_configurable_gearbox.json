@@ -10,9 +10,7 @@
   ],
   "results":[
     {
-      "item":{
-        "id":"createcasing:andesite_configurable_gearbox"
-      }
+      "item":"createcasing:andesite_configurable_gearbox"
     }
   ]
 }

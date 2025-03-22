@@ -10,9 +10,7 @@
   ],
   "results":[
     {
-      "item":{
-        "id":"createcasing:railway_configurable_gearbox"
-      }
+      "item":"createcasing:railway_configurable_gearbox"
     }
   ]
 }

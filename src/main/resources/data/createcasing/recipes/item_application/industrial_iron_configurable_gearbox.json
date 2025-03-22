@@ -10,9 +10,7 @@
   ],
   "results":[
     {
-      "item":{
-        "id":"createcasing:industrial_iron_configurable_gearbox"
-      }
+      "item":"createcasing:industrial_iron_configurable_gearbox"
     }
   ]
 }
