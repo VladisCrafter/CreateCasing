@@ -139,6 +139,6 @@ public class BrassShaftScreen extends AbstractSimiScreen {
 
     @Override
     public void removed() {
-        ModPackets.getChannel().sendToServer(new ConfigureBrassShaftPacket(be.getBlockPos(), maxStressWidget.getState()));
+        ModPackets.getChannel().sendToServer(new ConfigureBrassShaftPacket(be.getBlockPos(), maxStressWidget.getState(),scrollInput.getState(),be.getOperation().ordinal()));
     }
 }
