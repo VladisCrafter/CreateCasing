@@ -28,6 +28,6 @@ public class CreateCasingClient {
     }
 
     public static void onRegisterAdditionalModels(ModelEvent.RegisterAdditional event){
-        ModPartialModels.ALL_ENCASED_MODELS.forEach(m->event.register(ModelResourceLocation.standalone(m.modelLocation())));
+        ModPartialModels.ALL_ENCASED_MODELS.forEach(m->event.register(m.modelLocation()));
     }
 }

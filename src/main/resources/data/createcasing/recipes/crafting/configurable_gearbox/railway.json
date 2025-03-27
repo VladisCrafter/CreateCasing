@@ -10,10 +10,10 @@
       "item": "create:large_cogwheel"
     },
     "B": {
-      "item": "createcasing:creative_casing"
+      "item": "create:railway_casing"
     }
   },
   "result": {
-    "id": "createcasing:creative_configurable_gearbox"
+    "item": "createcasing:railway_configurable_gearbox"
   }
 }
