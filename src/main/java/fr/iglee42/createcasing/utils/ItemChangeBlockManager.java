@@ -8,6 +8,7 @@ import fr.iglee42.createcasing.config.ModConfigs;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -55,6 +56,7 @@ public class ItemChangeBlockManager {
 
     private static void changeBlock(PlayerInteractEvent.RightClickBlock event,BlockState state,Level level,BlockState newBlock){
         level.setBlockAndUpdate(event.getPos(), newBlock);
+        level.levelEvent(2001, event.getPos(), Block.getId(newBlock));
         event.setCancellationResult(InteractionResult.SUCCESS);
         event.setCanceled(true);
     }
