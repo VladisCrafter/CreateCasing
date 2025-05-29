@@ -4,6 +4,8 @@ import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipModifier;
+import com.simibubi.create.infrastructure.data.CreateDatagen;
+import com.tterrag.registrate.providers.RegistrateDataProvider;
 import fr.iglee42.createcasing.commands.CreateCasingCommand;
 import fr.iglee42.createcasing.config.ModConfigs;
 import fr.iglee42.createcasing.registries.*;
@@ -14,7 +16,9 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -73,6 +77,8 @@ public class CreateCasing {
         forgeEventBus.addListener(this::registerCommands);
         modEventBus.addListener(this::setup);
         modEventBus.addListener(ModSounds::register);
+        modEventBus.addListener(EventPriority.LOWEST, this::gatherData);
+
 
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -94,5 +100,7 @@ public class CreateCasing {
         if (!FMLEnvironment.production) new CreateCasingCommand(event.getDispatcher());
     }
 
-
+    private void gatherData(GatherDataEvent event) {
+        event.getGenerator().addProvider(true, REGISTRATE.setDataProvider(new RegistrateDataProvider(REGISTRATE, MODID, event)));
+    }
 }
