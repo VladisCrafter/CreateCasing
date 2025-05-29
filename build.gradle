@@ -20,6 +20,10 @@ apply plugin: 'maven-publish'
 group = mod_group_id
 version = minecraft_version + "-" +mod_version
 
+var cleanResources = tasks.register('cleanOldGeneratedResources', Delete) {
+    delete "$projectDir/src/generated/resources"
+}
+
 java {
     archivesBaseName = mod_name
     toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -63,16 +67,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'CreateCasing'
-
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-
-            mods {
-                createcasing {
-                    source sourceSets.main
-                }
-            }
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
         server {
@@ -127,7 +122,7 @@ minecraft {
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'createcasing', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'createcasing', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), '--existing-mod','create'
 
             mods {
                 createcasing {
