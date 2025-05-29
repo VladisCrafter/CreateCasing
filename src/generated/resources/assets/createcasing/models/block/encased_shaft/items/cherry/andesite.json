@@ -4,7 +4,6 @@
     "1_0": "minecraft:block/stripped_cherry_log",
     "1_1": "minecraft:block/stripped_cherry_log_top",
     "casing": "create:block/andesite_casing",
-    "opening": "create:block/gearbox",
-    "particle": "create:block/andesite_casing"
+    "opening": "create:block/gearbox"
   }
 }
