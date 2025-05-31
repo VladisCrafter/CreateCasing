@@ -2,8 +2,7 @@ package fr.iglee42.createcasing.blocks.shafts;
 
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedShaftBlock;
-import fr.iglee42.createcasing.registries.ModBlockEntities;
-import fr.iglee42.createcasing.utils.DontShowInCreativeTab;
+import fr.iglee42.createcasing.registries.EncasedBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -18,7 +17,7 @@ import net.minecraft.world.phys.HitResult;
 
 import java.util.function.Supplier;
 
-public class EncasedCustomShaftBlock extends EncasedShaftBlock implements DontShowInCreativeTab {
+public class EncasedCustomShaftBlock extends EncasedShaftBlock {
 
     private Supplier<Block> shaft;
 
@@ -29,7 +28,7 @@ public class EncasedCustomShaftBlock extends EncasedShaftBlock implements DontSh
 
     @Override
     public BlockEntityType<? extends KineticBlockEntity> getBlockEntityType() {
-        return ModBlockEntities.CUSTOM_ENCASED_SHAFT.get();
+        return EncasedBlockEntities.CUSTOM_ENCASED_SHAFT.get();
     }
 
     public Supplier<Block> getShaft() {

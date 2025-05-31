@@ -15,7 +15,7 @@ import dev.engine_room.flywheel.api.model.Model;
 import dev.engine_room.flywheel.api.visual.BlockEntityVisual;
 import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import dev.engine_room.flywheel.lib.model.Models;
-import fr.iglee42.createcasing.registries.ModPartialModels;
+import fr.iglee42.createcasing.registries.EncasedPartialModels;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.AxisDirection;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -29,7 +29,7 @@ public class WoodenCogwheelBlockEntityVisual {
 		if (ICogWheel.isLargeCog(blockEntity.getBlockState())) {
 			return new LargeCogVisual(context, blockEntity, partialTick);
 		} else {
-			Model model = Models.partial(ModPartialModels.COGS_MODELS.get(ForgeRegistries.BLOCKS.getKey(blockEntity.getBlockState().getBlock()).getPath().replaceAll("_cogwheel","")));
+			Model model = Models.partial(EncasedPartialModels.COGS_MODELS.get(ForgeRegistries.BLOCKS.getKey(blockEntity.getBlockState().getBlock()).getPath().replaceAll("_cogwheel","")));
 			return new SingleAxisRotatingVisual<>(context, blockEntity, partialTick, model);
 		}
 	}
@@ -40,7 +40,7 @@ public class WoodenCogwheelBlockEntityVisual {
 		protected final RotatingInstance additionalShaft;
 
 		private LargeCogVisual(VisualizationContext context, BracketedKineticBlockEntity blockEntity, float partialTick) {
-			super(context, blockEntity, partialTick, Models.partial(ModPartialModels.SHAFTLESS_LARGE_COGS_MODELS.get(ForgeRegistries.BLOCKS.getKey(blockEntity.getBlockState().getBlock()).getPath().replaceAll("_large_cogwheel",""))));
+			super(context, blockEntity, partialTick, Models.partial(EncasedPartialModels.SHAFTLESS_LARGE_COGS_MODELS.get(ForgeRegistries.BLOCKS.getKey(blockEntity.getBlockState().getBlock()).getPath().replaceAll("_large_cogwheel",""))));
 
 			Direction.Axis axis = KineticBlockEntityRenderer.getRotationAxisOf(blockEntity);
 

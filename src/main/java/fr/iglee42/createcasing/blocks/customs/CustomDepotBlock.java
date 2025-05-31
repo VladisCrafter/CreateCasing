@@ -2,8 +2,6 @@ package fr.iglee42.createcasing.blocks.customs;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import com.simibubi.create.AllBlockEntityTypes;
-import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllShapes;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.content.logistics.depot.DepotBlockEntity;
@@ -11,8 +9,7 @@ import com.simibubi.create.content.logistics.depot.SharedDepotBlockMethods;
 import com.simibubi.create.foundation.block.IBE;
 import com.simibubi.create.foundation.block.ProperWaterloggedBlock;
 
-import fr.iglee42.createcasing.registries.ModBlockEntities;
-import fr.iglee42.createcasing.registries.ModBlocks;
+import fr.iglee42.createcasing.registries.EncasedBlockEntities;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -78,7 +75,7 @@ public class CustomDepotBlock extends Block implements IBE<DepotBlockEntity>, IW
 	
 	@Override
 	public BlockEntityType<? extends DepotBlockEntity> getBlockEntityType() {
-		return ModBlockEntities.DEPOT.get();
+		return EncasedBlockEntities.DEPOT.get();
 	}
 
 	@Override
@@ -107,7 +104,7 @@ public class CustomDepotBlock extends Block implements IBE<DepotBlockEntity>, IW
 	public int getAnalogOutputSignal(BlockState blockState, Level worldIn, BlockPos pos) {
 		return SharedDepotBlockMethods.getComparatorInputOverride(blockState, worldIn, pos);
 	}
-	
+
 	@Override
 	public boolean isPathfindable(BlockState state, BlockGetter reader, BlockPos pos, PathComputationType type) {
 		return false;

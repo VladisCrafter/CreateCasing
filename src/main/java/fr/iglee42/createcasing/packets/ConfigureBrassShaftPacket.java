@@ -1,7 +1,6 @@
 package fr.iglee42.createcasing.packets;
 
 import com.simibubi.create.content.kinetics.RotationPropagator;
-import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.foundation.networking.BlockEntityConfigurationPacket;
 
 import fr.iglee42.createcasing.blockEntities.BrassShaftBlockEntity;

@@ -18,9 +18,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static net.minecraftforge.network.NetworkDirection.PLAY_TO_SERVER;
-
-public enum ModPackets {
+public enum EncasedPackets  {
 
 	// Client to Server
 	BRASS_SHAFT_CONFIGURE(ConfigureBrassShaftPacket.class,
@@ -38,7 +36,7 @@ public enum ModPackets {
 
 	private PacketType<?> packetType;
 
-	<T extends SimplePacketBase> ModPackets(Class<T> type, Function<FriendlyByteBuf, T> factory,
+	<T extends SimplePacketBase> EncasedPackets(Class<T> type, Function<FriendlyByteBuf, T> factory,
 											NetworkDirection direction) {
 		packetType = new PacketType<>(type, factory, direction);
 	}

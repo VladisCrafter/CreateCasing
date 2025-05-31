@@ -4,7 +4,6 @@ import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipModifier;
-import com.simibubi.create.infrastructure.data.CreateDatagen;
 import com.tterrag.registrate.providers.RegistrateDataProvider;
 import fr.iglee42.createcasing.commands.CreateCasingCommand;
 import fr.iglee42.createcasing.config.ModConfigs;
@@ -66,7 +65,7 @@ public class CreateCasing {
         ModCreativeModeTabs.register(modEventBus);
         ModPackets.registerPackets();
 
-        ModBlocks.registerEncasedShafts();
+        EncasedBlocks.registerEncasedShafts();
 
         ModConfigs.register(ModLoadingContext.get());
 
@@ -76,7 +75,7 @@ public class CreateCasing {
 
         forgeEventBus.addListener(this::registerCommands);
         modEventBus.addListener(this::setup);
-        modEventBus.addListener(ModSounds::register);
+        modEventBus.addListener(EncasedSounds::register);
         modEventBus.addListener(EventPriority.LOWEST, this::gatherData);
 
 

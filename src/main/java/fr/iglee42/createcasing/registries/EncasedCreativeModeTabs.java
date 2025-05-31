@@ -31,7 +31,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class ModCreativeModeTabs {
+public class EncasedCreativeModeTabs {
 
 	private static final DeferredRegister<CreativeModeTab> TAB_REGISTER =
 		DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CreateCasing.MODID);
@@ -40,8 +40,8 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup."+CreateCasing.MODID+".base"))
                     .withTabsBefore(AllCreativeModeTabs.BASE_CREATIVE_TAB.getKey())
-                    .icon(ModBlocks.BRASS_GEARBOX::asStack)
-                    .displayItems(new RegistrateDisplayItemsGenerator(true,ModCreativeModeTabs.MAIN_TAB))
+                    .icon(EncasedBlocks.BRASS_GEARBOX::asStack)
+                    .displayItems(new RegistrateDisplayItemsGenerator(true, EncasedCreativeModeTabs.MAIN_TAB))
                     .build());
 
 
@@ -95,14 +95,14 @@ public class ModCreativeModeTabs {
             );
 
             Map<ItemProviderEntry<?>, ItemProviderEntry<?>> simpleAfterOrderings = Map.of(
-                    ModItems.VERTICAL_BRASS_GEARBOX, ModBlocks.BRASS_GEARBOX,
-                    ModItems.VERTICAL_COPPER_GEARBOX, ModBlocks.COPPER_GEARBOX,
-                    ModItems.VERTICAL_RAILWAY_GEARBOX, ModBlocks.RAILWAY_GEARBOX,
-                    ModItems.VERTICAL_CREATIVE_GEARBOX, ModBlocks.CREATIVE_GEARBOX,
-                    ModItems.VERTICAL_INDUSTRIAL_IRON_GEARBOX, ModBlocks.INDUSTRIAL_IRON_GEARBOX,
-                    ModItems.VERTICAL_WEATHERED_IRON_GEARBOX, ModBlocks.WEATHERED_IRON_GEARBOX,
-                    ModItems.VERTICAL_REFINED_RADIANCE_GEARBOX, ModBlocks.REFINED_RADIANCE_GEARBOX,
-                    ModItems.VERTICAL_SHADOW_STEEL_GEARBOX, ModBlocks.SHADOW_STEEL_GEARBOX
+                    EncasedItems.VERTICAL_BRASS_GEARBOX, EncasedBlocks.BRASS_GEARBOX,
+                    EncasedItems.VERTICAL_COPPER_GEARBOX, EncasedBlocks.COPPER_GEARBOX,
+                    EncasedItems.VERTICAL_RAILWAY_GEARBOX, EncasedBlocks.RAILWAY_GEARBOX,
+                    EncasedItems.VERTICAL_CREATIVE_GEARBOX, EncasedBlocks.CREATIVE_GEARBOX,
+                    EncasedItems.VERTICAL_INDUSTRIAL_IRON_GEARBOX, EncasedBlocks.INDUSTRIAL_IRON_GEARBOX,
+                    EncasedItems.VERTICAL_WEATHERED_IRON_GEARBOX, EncasedBlocks.WEATHERED_IRON_GEARBOX,
+                    EncasedItems.VERTICAL_REFINED_RADIANCE_GEARBOX, EncasedBlocks.REFINED_RADIANCE_GEARBOX,
+                    EncasedItems.VERTICAL_SHADOW_STEEL_GEARBOX, EncasedBlocks.SHADOW_STEEL_GEARBOX
             );
 
             simpleBeforeOrderings.forEach((entry, otherEntry) -> {
