@@ -47,7 +47,6 @@ public class EncasedItems {
             REGISTRATE.item("processing_chorium", SequencedAssemblyItem::new)
                     .properties(p->p.rarity(Rarity.EPIC))
                     .onRegisterAfter(Registries.ITEM, CreateCasing::hideItem)
-                    .model(AssetLookup.existingItemModel())
                     .register();
 
     public static void register(){}

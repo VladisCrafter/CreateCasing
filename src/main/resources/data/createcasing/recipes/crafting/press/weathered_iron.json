@@ -13,7 +13,7 @@
       "item": "create:shaft"
     },
     "I": {
-      "tag": "c:storage_blocks/iron"
+      "tag": "forge:storage_blocks/iron"
     }
   },
   "result": {
