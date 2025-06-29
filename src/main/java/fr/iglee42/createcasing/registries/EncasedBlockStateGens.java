@@ -4,7 +4,6 @@ import com.google.common.base.Function;
 import com.simibubi.create.Create;
 import com.simibubi.create.content.fluids.pipes.EncasedPipeBlock;
 import com.simibubi.create.content.kinetics.chainDrive.ChainDriveBlock;
-import com.simibubi.create.content.kinetics.chainDrive.ChainGearshiftBlock;
 import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedCogwheelBlock;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
@@ -21,7 +20,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.neoforged.neoforge.client.model.generators.*;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelBuilder;
+import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
 
 import java.util.Objects;
 
@@ -107,7 +109,7 @@ public class EncasedBlockStateGens {
         }
     }
 
-    private static ModelBuilder<? extends ModelBuilder<?>> texturesChainConveyor(ModelBuilder<? extends ModelBuilder<?>> builder,String casing){
+    private static ModelBuilder<? extends ModelBuilder<?>> texturesChainConveyor(ModelBuilder<? extends ModelBuilder<?>> builder, String casing){
         return builder
                 .texture("conveyor_casing",getConveyorCasingTexture(casing))
                 .texture("conveyor_port", getConveyorPortTexture(casing))

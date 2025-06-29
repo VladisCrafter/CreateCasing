@@ -15,7 +15,7 @@ public class BlockEntityTypeMixin {
 
     @Inject(method = "isValid",at = @At("HEAD"),cancellable = true)
     private void isValid(BlockState state, CallbackInfoReturnable<Boolean> cir){
-        if (EncasedBlockEntities.ENCASED_SHAFT.isBound() &&( this.equals(EncasedBlockEntities.ENCASED_SHAFT.get()) ||
+        if (EncasedBlockEntities.ENCASED_SHAFT.isPresent() &&( this.equals(EncasedBlockEntities.ENCASED_SHAFT.get()) ||
                 this.equals(EncasedBlockEntities.ENCASED_COGWHEEL.get()) ||
                 this.equals(EncasedBlockEntities.ENCASED_COGWHEEL_LARGE.get()) ||
                 this.equals(EncasedBlockEntities.ENCASED_FLUID_PIPE.get()) ||

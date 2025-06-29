@@ -44,27 +44,27 @@ public abstract class BeltBlockMixin {
             cir.setReturnValue(InteractionResult.SUCCESS);
             return;
         }
-        if (cmr$customCasingUse(AllBlocks.WEATHERED_IRON_BLOCK,EncasedBlocks.WEATHERED_IRON_BELT_CASING,stack,level,pos,player)) {
+        if (cmr$customCasingUse(AllBlocks.WEATHERED_IRON_BLOCK,EncasedBlocks.WEATHERED_IRON_BELT_CASING,heldItem,world,pos,player)) {
             cir.setReturnValue(InteractionResult.SUCCESS);
             return;
         }
-        if (cmr$customCasingUse(EncasedBlocks.CREATIVE_CASING,EncasedBlocks.CREATIVE_BELT_CASING,stack,level,pos,player)) {
+        if (cmr$customCasingUse(EncasedBlocks.CREATIVE_CASING,EncasedBlocks.CREATIVE_BELT_CASING,heldItem,world,pos,player)) {
             cir.setReturnValue(InteractionResult.SUCCESS);
             return;
         }
-        if (cmr$customCasingUse(AllBlocks.SHADOW_STEEL_CASING, EncasedBlocks.SHADOW_STEEL_BELT_CASING,stack,level,pos,player)) {
-            cir.setReturnValue(ItemInteractionResult.SUCCESS);
+        if (cmr$customCasingUse(AllBlocks.SHADOW_STEEL_CASING, EncasedBlocks.SHADOW_STEEL_BELT_CASING,heldItem,world,pos,player)) {
+            cir.setReturnValue(InteractionResult.SUCCESS);
             return;
         }
-        if (cmr$customCasingUse(AllBlocks.REFINED_RADIANCE_CASING, EncasedBlocks.REFINED_RADIANCE_BELT_CASING,stack,level,pos,player)) {
-            cir.setReturnValue(ItemInteractionResult.SUCCESS);
+        if (cmr$customCasingUse(AllBlocks.REFINED_RADIANCE_CASING, EncasedBlocks.REFINED_RADIANCE_BELT_CASING,heldItem,world,pos,player)) {
+            cir.setReturnValue(InteractionResult.SUCCESS);
             return;
         }
     }
 
 
     @Unique
-    private boolean cmr$customCasingUse(BlockEntry<? extends Block> entry, BeltBlockEntity.CasingType type,ItemStack heldItem,Level world,BlockPos pos,Player player){
+    private boolean cmr$customCasingUse(BlockEntry<? extends Block> entry, BeltBlockEntity.CasingType type, ItemStack heldItem, Level world, BlockPos pos, Player player){
         if (entry.isIn(heldItem) && type != null) {
             if (world.getBlockEntity(pos) instanceof BeltBlockEntity be)
                 be.setCasingType(type);

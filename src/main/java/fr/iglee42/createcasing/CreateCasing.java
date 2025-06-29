@@ -58,12 +58,12 @@ public class CreateCasing {
 
         //if (isExtendedCogsLoaded()) ExtendedCogwheels.registrate().addRegisterCallback(Registry.BLOCK_REGISTRY, CreateExtendedCogwheelsCompat::register);
         
-        ModSounds.prepare();
-        ModBlocks.register();
+        EncasedSounds.prepare();
+        EncasedBlocks.register();
         //ModItems.register();
-        ModBlockEntities.register();
-        ModCreativeModeTabs.register(modEventBus);
-        ModPackets.registerPackets();
+        EncasedBlockEntities.register();
+        EncasedCreativeModeTabs.register(modEventBus);
+        EncasedPackets.registerPackets();
 
         EncasedBlocks.registerEncasedShafts();
 
@@ -100,6 +100,6 @@ public class CreateCasing {
     }
 
     private void gatherData(GatherDataEvent event) {
-        event.getGenerator().addProvider(true, REGISTRATE.setDataProvider(new RegistrateDataProvider(REGISTRATE, MODID, event)));
+        //event.getGenerator().addProvider(true, new RegistrateDataProvider(REGISTRATE, MODID, event));
     }
 }

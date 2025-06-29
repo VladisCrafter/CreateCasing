@@ -22,7 +22,7 @@ public enum EncasedPackets  {
 
 	// Client to Server
 	BRASS_SHAFT_CONFIGURE(ConfigureBrassShaftPacket.class,
-			ConfigureBrassShaftPacket::new, PLAY_TO_SERVER),
+			ConfigureBrassShaftPacket::new, NetworkDirection.PLAY_TO_SERVER),
 
 	// Server to Client
 	//SYMMETRY_EFFECT(SymmetryEffectPacket.class, SymmetryEffectPacket::new, PLAY_TO_CLIENT),
@@ -48,7 +48,7 @@ public enum EncasedPackets  {
 			.networkProtocolVersion(() -> NETWORK_VERSION_STR)
 			.simpleChannel();
 
-		for (ModPackets packet : values())
+		for (EncasedPackets packet : values())
 			packet.packetType.register();
 	}
 

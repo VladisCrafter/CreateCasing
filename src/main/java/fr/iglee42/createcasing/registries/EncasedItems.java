@@ -1,6 +1,7 @@
 package fr.iglee42.createcasing.registries;
 
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
+import com.simibubi.create.foundation.data.AssetLookup;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.nullness.NonNullFunction;
 import fr.iglee42.createcasing.CreateCasing;
@@ -46,6 +47,7 @@ public class EncasedItems {
             REGISTRATE.item("processing_chorium", SequencedAssemblyItem::new)
                     .properties(p->p.rarity(Rarity.EPIC))
                     .onRegisterAfter(Registries.ITEM, CreateCasing::hideItem)
+                    .model(AssetLookup.existingItemModel())
                     .register();
 
     public static void register(){}

@@ -87,7 +87,7 @@ public class BrassShaftScreen extends AbstractSimiScreen {
             IconButton operationButton = new IconButton(x + 33 + i * 18, y + background.getHeight() - 24, icons.get(i));
             int operation = i;
             operationButton.withCallback(() -> {
-                ModPackets.getChannel().sendToServer(new ConfigureBrassShaftPacket(be.getBlockPos(), maxStressWidget.getState(),scrollInput.getState(),operation));
+                EncasedPackets.getChannel().sendToServer(new ConfigureBrassShaftPacket(be.getBlockPos(), maxStressWidget.getState(),scrollInput.getState(),operation));
             });
             operationButton.setToolTip(BrassShaftBlockEntity.Operation.getComponents().get(i));
             operationButtons.add(operationButton);
@@ -136,6 +136,6 @@ public class BrassShaftScreen extends AbstractSimiScreen {
 
     @Override
     public void removed() {
-        ModPackets.getChannel().sendToServer(new ConfigureBrassShaftPacket(be.getBlockPos(), maxStressWidget.getState(),scrollInput.getState(),be.getOperation().ordinal()));
+        EncasedPackets.getChannel().sendToServer(new ConfigureBrassShaftPacket(be.getBlockPos(), maxStressWidget.getState(),scrollInput.getState(),be.getOperation().ordinal()));
     }
 }

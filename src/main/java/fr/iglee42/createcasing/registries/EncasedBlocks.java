@@ -44,6 +44,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -284,7 +285,7 @@ public class EncasedBlocks {
                     .addLayer(()-> RenderType::cutoutMipped)
                     .item()
                     .properties(p -> p.rarity(Rarity.EPIC))
-                    .transform(customItemModel())
+                    .transform(customItemModel("_", "item"))
                     .register();
 
 

@@ -42,7 +42,7 @@ import net.minecraft.world.phys.Vec3;
 
 public class CustomChainConveyorRenderer extends KineticBlockEntityRenderer<ChainConveyorBlockEntity> {
 
-	public static final ResourceLocation CHAIN_LOCATION = ResourceLocation.withDefaultNamespace("textures/block/chain.png");
+	public static final ResourceLocation CHAIN_LOCATION = new ResourceLocation("textures/block/chain.png");
 	public static final int MIP_DISTANCE = 48;
 
 	public CustomChainConveyorRenderer(Context context) {
@@ -243,12 +243,12 @@ public class CustomChainConveyorRenderer extends KineticBlockEntityRenderer<Chai
 
 	private static void addVertex(Matrix4f pPose, PoseStack.Pose pNormal, VertexConsumer pConsumer, float pY, float pX,
 		float pZ, float pU, float pV, int light) {
-		pConsumer.addVertex(pPose, pX, pY, pZ)
-			.setColor(1.0f, 1.0f, 1.0f, 1.0f)
-			.setUv(pU, pV)
-			.setOverlay(OverlayTexture.NO_OVERLAY)
-			.setLight(light)
-			.setNormal(pNormal, 0.0F, 1.0F, 0.0F);
+		pConsumer.vertex(pPose, pX, pY, pZ)
+			.color(1.0f, 1.0f, 1.0f, 1.0f)
+			.uv(pU, pV)
+			.overlayCoords(OverlayTexture.NO_OVERLAY)
+			.uv2(light)
+			.normal(pNormal.normal(), 0.0F, 1.0F, 0.0F);
 	}
 
 	@Override
